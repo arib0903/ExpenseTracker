@@ -57,6 +57,12 @@ function App() {
     setBudg(currAmt);
   }
 
+  const [dateAdd, setDateAdd] = useState("2023");
+
+  function setDate(newDate) {
+    setDateAdd(newDate);
+  }
+
   return (
     <div>
       {/* <div>
@@ -68,8 +74,9 @@ function App() {
         onAddExpense={onAddExpenseHandler}
         currFunc={setAmt}
         budgetFunc={setNewBudg}
+        dateFunc={setDate}
       />
-      <Expenses expenseItems={expenses} />{" "}
+      <Expenses expenseItems={expenses} sY={dateAdd} />
       <Budget expenseItems={curr} enteredBudg={budg}></Budget>
     </div>
   );

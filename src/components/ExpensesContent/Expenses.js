@@ -2,14 +2,26 @@ import ExpenseItem from "./ExpenseItem";
 import "./Expenses.css";
 import Card from "../UI/Card";
 import ExpensesFilter from "../ExpensesFilter/ExpensesFilter";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import ExpensesChart from "./ExpensesChart";
 //NUMBER 1
 
+//This is the parent component that serves as a way to update the state of the ExpensesFilter component
+//This also serves to encompass the actual output of the expenses that we had just added, by the ExpensesItem component
+//We also will either output the ExpensesItem component or the <h1> based on the year that was selected.
+
 //Expenses is being called by App.js,   The prop is going to be 'items' which currently inlcude the list of items available
 function Expenses(props) {
-  const [currentYear, UpdatedYear] = useState("2023");
+  const [currentYear, UpdatedYear] = useState(props.sY);
+  const [valid, setValid] = useState(false);
+
+  useEffect(() => {
+    UpdatedYear(props.sY);
+    setValid(true);
+  }, [props.sY]);
+
+  console.log("From Expenses.js", props.sY);
 
   function display(selectedYear) {
     UpdatedYear(selectedYear);
@@ -21,12 +33,31 @@ function Expenses(props) {
 
   //This is to filter the expenseItems based on the 'currentYear' that we have updated based on what was selected
   let filteredExpenses = props.expenseItems.filter((expense) => {
-    return expense.expenseDate.getFullYear().toString() === currentYear; // this gets the year from the expenseItems and compares with what was selected
+    if (expense.expenseDate.getFullYear().toString() === props.sY && valid) {
+      return true;
+    } else if (
+      expense.expenseDate.getFullYear().toString() === currentYear &&
+      !valid
+    ) {
+      return true;
+    }
   });
   /*********************************************************************************************************************************************************** */
   /*This is the conditional content that will have either the <h1> or the <ExpenseItem> */
 
-  let expenseContents = <h1>NO EXPENSES FOUND FOR {currentYear}</h1>;
+  let expenseContents = (
+    <h1
+      style={{
+        fontSize: "25px",
+        color: "white",
+        textAlign: "center",
+        padding: "10px",
+        fontWeight: "bold",
+      }}
+    >
+      NO EXPENSES FOUND FOR <div style={{ color: "red" }}>{currentYear}</div>
+    </h1>
+  );
   if (filteredExpenses.length > 0) {
     expenseContents = filteredExpenses.map((expense, id) => (
       <ExpenseItem
@@ -37,12 +68,20 @@ function Expenses(props) {
       />
     ));
   }
+  function revert() {
+    setValid(false);
+  }
+
   /*********************************************************************************************************************************************************** */
 
   return (
     <div>
       <Card className="expenses">
-        <ExpensesFilter selected={currentYear} onDisplayFiltered={display} />
+        <ExpensesFilter
+          selected={currentYear}
+          onDisplayFiltered={display}
+          revertValid={revert}
+        />
 
         <ExpensesChart expenses={filteredExpenses}></ExpensesChart>
         {/* this expenseContents will either be the default(None) or the list */}

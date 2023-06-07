@@ -4,11 +4,16 @@ import "./NewExpenses.css";
 
 //this props is the function 'onAddExpenseHandler'(onAddExpense) from app.js
 function NewExpenses(props) {
-  function saveExpenseDataHandler(enteredExpenseData, currentAmt, budget) {
+  function saveExpenseDataHandler(
+    enteredExpenseData,
+    currentAmt,
+    yearSelected
+  ) {
     //Expense data is a new object that we create from 'enteredExpenseData'
     console.log("From NewExpenses", typeof enteredExpenseData);
     props.onAddExpense(enteredExpenseData); // this passes expenseData into the 'onAddExpenseHandler' function as a means print out the added data
     props.currFunc(currentAmt);
+    props.dateFunc(yearSelected);
   }
   function carryOutBudgetFunc(budget) {
     console.log(budget);

@@ -40,7 +40,11 @@ function ExpenseForm(props) {
     };
 
     console.log("From ExpenseForm", expenseData);
-    props.onSaveExpenseData(expenseData, +enteredAmount);
+    props.onSaveExpenseData(
+      expenseData,
+      +enteredAmount,
+      expenseData.expenseDate.getFullYear().toString()
+    ); // this passes expenseData into the 'onAddExpenseHandler' function as a means print out the added data.
 
     /*********************************************************************************************************************************************************** */
     /*    To clear    */

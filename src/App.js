@@ -47,9 +47,11 @@ function App() {
   //   setChange((prop) => prop + 1);
   // }
   const [curr, setCurr] = useState(0);
+  // const [ex, SetEx] = useState(curr);
   function setAmt(currAmt) {
     setCurr(currAmt);
   }
+
   const [budg, setBudg] = useState(0);
   function setNewBudg(currAmt) {
     setBudg(currAmt);

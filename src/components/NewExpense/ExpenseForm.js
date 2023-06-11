@@ -28,10 +28,12 @@ function ExpenseForm(props) {
   /*********************************************************************************************************************************************************** */
   /** Gets the new values put in form and makes a NEW DATA CALLED expenseData */
   function submitHandler(event) {
-    event.preventDefault(); // this will prevent form the form to submitting an empty form. and it won't relode page
-    // if (event.enteredTitle.length == 0) {
-    //   window.alert("none");
-    // }
+      // window.alert("Please fill out all fields")
+      event.preventDefault();
+    
+   
+     // this will prevent form the form to submitting an empty form. and it won't relode page
+    
     const expenseData = {
       //NEW data to be added on to app.js via newExpenses
       expenseDate: new Date(enteredDate),

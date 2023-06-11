@@ -1,6 +1,6 @@
 .budgetAmount {
     position: fixed;
-    top: 10%;
+    top: 12%;
     right: 1%;
     font-size: 16px;
     background-color: #f2f2f2;
@@ -31,8 +31,9 @@ input {
         text-align: center;
         display: flex;
         top:auto;
-        left:30%;
+        left:28%;
         width: 50%;
+        padding-bottom: 10px;
         }
 }
 

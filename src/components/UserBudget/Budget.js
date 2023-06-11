@@ -17,6 +17,7 @@ function Budget(props) {
         step="0.01"
         onChange={(e) => {
           setEnteredAmount(e.target.value);
+
         }}
         className="random"
       />

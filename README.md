@@ -6,5 +6,5 @@ Expense Tracker is a web application built using   <img src="https://raw.githubu
 - **Data Visualization**: The application provides visual representations of expense data, including a charts  to help users analyze their spending patterns.
 - **Expense Filtering**: Users can filter expenses based year allowing for easier expense management.
 
-#To access the live website:
+# To access the live website:
 https://track-xpenses.netlify.app/

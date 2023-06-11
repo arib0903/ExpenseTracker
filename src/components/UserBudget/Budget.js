@@ -5,7 +5,7 @@ function Budget(props) {
   const [enteredAmount, setEnteredAmount] = useState(0);
 
   useEffect(() => {
-    setEnteredAmount(enteredAmount - props.expenseItems);
+    setEnteredAmount((e)=>e - props.expenseItems);
   }, [props.expenseItems]);
 
   return (

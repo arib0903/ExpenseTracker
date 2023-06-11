@@ -8,7 +8,6 @@ function ExpenseForm(props) {
   const [enteredTitle, updateEnteredTitle] = useState(""); // we have stored the user's title as "enteredTitle"
   const [enteredAmount, updateEnteredAmount] = useState(""); // we have stored the user's amount as "enteredAmount"
   const [enteredDate, updateEnteredDate] = useState("");
-  const [enteredBudget, setEnteredAmount] = React.useState(0);
 
   /*********************************************************************************************************************************************************** */
 
@@ -44,9 +43,7 @@ function ExpenseForm(props) {
     console.log("From ExpenseForm", expenseData);
     props.onSaveExpenseData(
       expenseData,
-      +enteredAmount,
-      expenseData.expenseDate.getFullYear().toString()
-    ); // this passes expenseData into the 'onAddExpenseHandler' function as a means print out the added data.
+      +enteredAmount    ); // this passes expenseData into the 'onAddExpenseHandler' function as a means print out the added data.
 
     /*********************************************************************************************************************************************************** */
     /*    To clear    */
@@ -56,7 +53,6 @@ function ExpenseForm(props) {
     updateEnteredDate("");
   }
   /*********************************************************************************************************************************************************** */
-  const [validity, checkValid] = useState(false);
 
   return (
     <form onSubmit={submitHandler}>

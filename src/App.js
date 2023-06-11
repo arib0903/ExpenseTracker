@@ -1,4 +1,3 @@
-import ExpenseItem from "./components/ExpensesContent/ExpenseItem";
 import Expenses from "./components/ExpensesContent/Expenses";
 import NewExpenses from "./components/NewExpense/NewExpenses";
 import React, { useState } from "react";
@@ -25,10 +24,7 @@ function App() {
     setCurr(currAmt);
   }
 
-  const [dateAdd, setDateAdd] = useState("2023");
-  function setDate(newDate) {
-    setDateAdd(newDate);
-  }
+
 
   return (
     <div>
@@ -54,7 +50,7 @@ function App() {
       <NewExpenses
         onAddExpense={onAddExpenseHandler}
         currFunc={setAmt}
-        dateFunc={setDate}
+        // dateFunc={setDate}
       />
 
       <Expenses expenseItems={expenses} />

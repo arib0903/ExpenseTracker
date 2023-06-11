@@ -14,10 +14,10 @@ function ChartBar(props) {
 
   return (
     <div className="chart-bar">
-      {props.value != 0 && (
+      {props.value !== 0 && (
         <div className="chart-bar__value">{props.value}</div>
       )}
-      {props.value == 0 && <p></p>}
+      {props.value === 0 && <p></p>}
 
       <div className="chart-bar__inner">
         <div

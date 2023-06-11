@@ -1,11 +1,9 @@
 import React from "react";
 import "./ExpensesFilter.css";
-import { useState } from "react";
 
 function ExpensesFilter(props) {
   function filterHandler(event) {
     props.onDisplayFiltered(event.target.value);
-    props.revertValid();
   }
   return (
     <div className="expenses-filter">

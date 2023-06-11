@@ -2,7 +2,7 @@ import ExpenseItem from "./ExpenseItem";
 import "./Expenses.css";
 import Card from "../UI/Card";
 import ExpensesFilter from "../ExpensesFilter/ExpensesFilter";
-import React, { useEffect, useState } from "react";
+import React, {useState } from "react";
 
 import ExpensesChart from "./ExpensesChart";
 //NUMBER 1
@@ -23,12 +23,7 @@ const [currentYear, UpdatedYear] = useState("2023");
 
   /*********************************************************************************************************************************************************** */
   /*Filtering from list based on YEAR */
-  const [valid, setValid] = useState(true);
 
-  function revert() {
-
-    setValid(false);
-  }
 
   //This is to filter the expenseItems based on the 'currentYear' that we have updated based on what was selected
   let filteredExpenses = props.expenseItems.filter((expense) => {
@@ -74,7 +69,6 @@ const [currentYear, UpdatedYear] = useState("2023");
         <ExpensesFilter
           selected={currentYear}
           onDisplayFiltered={display}
-          revertValid={revert}
         />
 
         <ExpensesChart expenses={filteredExpenses}></ExpensesChart>

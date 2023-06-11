@@ -3,7 +3,6 @@ import "./Budget.css";
 
 function Budget(props) {
   const [enteredAmount, setEnteredAmount] = useState(0);
-  const [remainingBalance, setRemainingBalance] = useState(enteredAmount);
 
   useEffect(() => {
     setEnteredAmount(enteredAmount - props.expenseItems);
